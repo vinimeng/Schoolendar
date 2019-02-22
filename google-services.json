@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "237569382121",
+    "firebase_url": "https://schoolendar-1.firebaseio.com",
+    "project_id": "schoolendar-1",
+    "storage_bucket": "schoolendar-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:237569382121:android:57d5d43a7039dc9a",
+        "android_client_info": {
+          "package_name": "app.meng.schoolendar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "237569382121-s4d97m4afjnl2stkqmepgiotucjpc6mm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZxTO1AHJOZT4BBrl8oJF9YxpY6YjLszs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

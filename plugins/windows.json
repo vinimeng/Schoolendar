@@ -1,0 +1,37 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "HelloCordova"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "HelloCordova"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "HelloCordova"
+        },
+        "cordova-plugin-firebase": {
+            "PACKAGE_NAME": "HelloCordova"
+        },
+        "cordova-plugin-appminimize": {
+            "PACKAGE_NAME": "HelloCordova"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "HelloCordova"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "HelloCordova"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "HelloCordova"
+        }
+    }
+}

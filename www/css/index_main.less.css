@@ -1,0 +1,768 @@
+/*
+
+  Warning:  This CSS file has been auto-generated from a .less file.  If you edit it your edits will be lost the next time LessCSS is run.
+
+  It would be best to make a separate CSS file and place any overriding CSS in there.  If you must access the original CSS, do so by editing the .less files.
+
+*/
+/* global settings */
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  margin: 0px;
+}
+/* grid */
+.grid {
+  width: 100%;
+}
+.upage-content > .grid {
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* gutter around whole design */
+/*
+.upage-content > .grid-pad {
+  padding: @gutter @gutter 0px @gutter;
+}
+*/
+/* column */
+.urow:not(.cright) > .col {
+  float: left;
+}
+.urow.cright > .col {
+  float: right;
+}
+.col {
+  position: relative;
+  min-height: 1px;
+}
+.content-area {
+  position: relative;
+}
+/* row */
+.urow {
+  clear: both;
+  position: relative;
+}
+form.urow {
+  margin-bottom: 0px;
+}
+.widget {
+  position: relative;
+}
+/* for widgets and the like
+   <div class="table-thing widget">
+    <div class="narrow-control w85"> my width is set </div>
+    <div class="wide-control"> my width is 100%, minus the set width of the narrow-control</div>
+   </div>
+
+   .w85 { width:85px; }
+*/
+.vertical-col > *,
+.vertical-col > .table-thing,
+.vertical-col > .afScrollPanel > .table-thing,
+.wrapping-col > .no_wrap.table-thing,
+.wrapping-col > .afScrollPanel > .no_wrap.table-thing {
+  width: 100%;
+}
+#afui .vertical-col > .afScrollPanel > .widget,
+#afui .vertical-col > .widget,
+.vertical-col > .widget {
+  width: calc(100% - 10px);
+  margin-left: 5px;
+}
+.col > .vertical-col > .widget {
+  width: 100%;
+  margin-left: 0;
+}
+.table-thing {
+  display: table;
+}
+.wide-control {
+  display: table-cell;
+  width: 100%;
+}
+.narrow-control {
+  display: table-cell;
+}
+/* wrapping column */
+.wrapping-col.right > *,
+.wrapping-col.right > .afScrollPanel > * {
+  float: right;
+}
+/* margin: 0 5px;   move margin to another class */
+.wrapping-col.left > *,
+.wrapping-col.left > .afScrollPanel > * {
+  float: left;
+}
+/* center and right alignment */
+.vertical-col.center {
+  text-align: center;
+}
+.vertical-col.right {
+  text-align: right;
+}
+.vertical-col.right > *,
+.col > .vertical-col.right > .widget,
+.vertical-col.right > .afScrollPanel > * {
+  margin-left: auto;
+}
+.vertical-col.center > *,
+.col > .vertical-col.center > .widget,
+.vertical-col.center > .afScrollPanel > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+.wrapping-col:not(.horiz-area) > .no_wrap,
+.wrapping-col:not(.horiz-area) > .afScrollPanel > .no_wrap {
+  float: none;
+  clear: both;
+  /* margin: 8px 0px; */
+}
+.center-h-v-col > .widget {
+  position: absolute !important;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  margin-top: 0 !important;
+}
+/* shim */
+.uib_shim {
+  clear: both;
+  float: none !important;
+  width: 100%;
+  position: relative;
+  height: 0px;
+  line-height: 0px;
+  font-size: 0px;
+  display: block;
+}
+/* content-box fix for box-sizing */
+.content-box,
+.content-box:before,
+.content-box:after {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+/* page */
+.hidden:not(.afPopup) {
+  display: none;
+}
+.upage-content,
+.upage-outer {
+  position: relative;
+}
+html,
+body {
+  height: 100%;
+}
+body:not(#afui) .upage,
+body:not(#afui) .upage-content {
+  height: 100%;
+}
+body:not(#afui) .upage-outer {
+  height: auto;
+}
+/* position relative works fine. but fixed can be elected as well */
+/* .upage-content, .upage-outer { position: fixed; height:100%; } */
+.upage {
+  overflow-x: hidden;
+}
+.upage-content {
+  z-index: 1;
+}
+#afui .upage {
+  padding: 0;
+}
+/* sidebars and crossbars */
+.uib_sidebar {
+  position: fixed;
+  height: 100%;
+  top: 0px;
+}
+.uib_crossbar {
+  position: fixed;
+  width: 100%;
+  left: 0px;
+}
+.leftbar,
+.rightbar {
+  z-index: 2;
+}
+.reveal.leftbar {
+  left: 0px;
+  z-index: 0;
+}
+.reveal.rightbar {
+  right: 0px;
+  z-index: 0;
+}
+.leftbar.oh,
+.rightbar.oh {
+  z-index: 3;
+}
+.reveal {
+  z-index: 0;
+  visibility: hidden;
+}
+.topbar {
+  z-index: 3;
+}
+.topbar.reveal {
+  top: 0px;
+  z-index: 0;
+}
+.botbar {
+  z-index: 3;
+  position: fixed;
+}
+.botbar.oh,
+.topbar.oh {
+  z-index: 4;
+}
+.sidebar-content {
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+  margin: 0;
+}
+.sidebar-thumb {
+  position: relative;
+  margin: 0;
+  /* background-image:url('images/gripper.png'); */
+}
+.template {
+  display: none !important;
+}
+.uib-absolute {
+  position: absolute !important;
+}
+#afui .header header {
+  display: -webkit-flex !important;
+  display: -moz-flex !important;
+  display: -ms-flex !important;
+  display: -o-flex !important;
+  display: flex !important;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+}
+#afui .header header#defaultHeader {
+  display: none !important;
+}
+#afui .header header input {
+  height: 32px;
+  padding: 6px;
+  font-size: 13px;
+}
+#afui .header header > .horiz-area {
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  -o-flex: 1;
+  flex: 1;
+  pointer-events: none;
+  z-index: 1;
+}
+#afui .header header > .horiz-area > * {
+  pointer-events: auto;
+}
+#afui .header header > h1 {
+  text-align: center !important;
+}
+#afui .header header > .header-left {
+  float: left;
+}
+#afui .header header > .header-right {
+  float: right;
+}
+#afui .header header > .single-centered {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+#afui .header header > .single-centered > * {
+  z-index: 1;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+#afui .header header > .with-back > :not(.backButton) {
+  display: none;
+}
+#afui .header header > .widget-container {
+  height: 100%;
+}
+@media all {
+  #afui .wrapping-col > .d-margins,
+  #afui .wrapping-col > .afScrollPanel > .d-margins {
+    margin-left: 4px;
+    margin-right: 5px;
+  }
+  #afui .wrapping-col > .d-margins,
+  #afui .wrapping-col > .afScrollPanel > .d-margins {
+    margin-left: 4px;
+    margin-right: 5px;
+  }
+  #afui .d-margins {
+    margin-top: 5px;
+    margin-bottom: 6px;
+  }
+}
+.Single-Color {
+  background-color: black !important;
+}
+.left-receptacle {
+  float: left;
+}
+.right-receptacle {
+  float: right;
+}
+[data-uib="media/text"] p:first-of-type {
+  margin-top: 0px;
+}
+.ellipsis {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+.sbs-container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -o-flex;
+  display: flex;
+  flex-direction: row;
+}
+.leftContent,
+.rightContent {
+  display: inline;
+  width: 50%;
+}
+.figure-align {
+  display: table;
+  margin: 0px auto;
+}
+.figure-align img {
+  width: 100%;
+}
+.image-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+@media all {
+  #afui .scale-image img {
+    width: 40px;
+    height: 35px;
+  }
+}
+#afui .with-label label.narrow-control {
+  float: none;
+}
+#afui .with-label label.narrow-control + * {
+  display: block;
+  width: 100% !important;
+  margin-bottom: 0 !important;
+}
+#afui .with-label label.narrow-control:empty {
+  display: none;
+}
+#afui .with-label .label-inline {
+  width: 30%;
+  vertical-align: middle;
+}
+#afui .with-label .label-top-left,
+#afui .with-label .label-top-right {
+  width: auto !important;
+  display: block;
+  padding: 8px 4px 4px;
+}
+#afui .with-label .label-top-left {
+  text-align: left !important;
+}
+#afui .with-label .label-top-right {
+  text-align: right !important;
+}
+@media all {
+  #afui .imgCalender img {
+    width: 55%;
+    height: 55%;
+  }
+}
+@media all {
+  #afui .imgCenter {
+    text-align: center;
+  }
+}
+@media all {
+  #afui .imgLogo img {
+    width: 90%;
+    height: 90%;
+  }
+}
+@media all {
+  #afui .labelTextStyle > label {
+    font-size: 18px;
+    font-weight: bolder;
+  }
+}
+@media all {
+  #afui .btnTextStyle {
+    font-size: 20px;
+    font-weight: bolder;
+  }
+}
+@media all {
+  #afui .footerStyle p {
+    text-align: center;
+  }
+}
+@media all {
+  #afui .imgMargin {
+    margin-top: 5px;
+  }
+}
+@media all {
+  #afui .inputMargin {
+    margin-top: 10px;
+  }
+}
+@media all {
+  #afui .imgCadastro img {
+    width: 140px;
+    height: 170px;
+  }
+}
+@media all {
+  #afui .escolhaFotoStyle p {
+    font-size: 14px;
+    font-weight: bolder;
+  }
+}
+@media all {
+  #afui .firstButtonMargin {
+    margin-top: 5px;
+    margin-bottom: 0px;
+  }
+}
+@media all {
+  #afui .btnMenuMargin {
+    margin-top: 2px;
+    margin-bottom: 0px;
+  }
+}
+@media all {
+  #afui .menuTextStyle {
+    font-size: 39px;
+    font-weight: bolder;
+    text-align: left;
+  }
+}
+@media all {
+  #afui .default-graphic-button {
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: grey;
+    background-color: #ffffff;
+  }
+}
+@media all {
+  #afui .hover-graphic-button:hover {
+    border-radius: 5px;
+    background-color: #eeeeee;
+  }
+}
+@media all {
+  #afui .default-graphic-text {
+    text-align: right;
+  }
+}
+@media all {
+  #afui .active-graphic-button:active {
+    border-radius: 5px;
+    background-color: #dddddd;
+  }
+}
+@media all {
+  #afui .default-image-sizing > img {
+    width: 20%;
+    height: 100%;
+  }
+}
+@media all {
+  #afui .default-graphic-sizing {
+    height: 30px !important;
+    width: 50px !important;
+    -webkit-flex: 0 0 auto !important;
+    -moz-flex: 0 0 auto !important;
+    -ms-flex: 0 0 auto !important;
+    -o-flex: 0 0 auto !important;
+    flex: 0 0 auto !important;
+    padding: 5px 5px 5px 5px;
+  }
+}
+@media all {
+  #afui .default-sprite-button div.uib-sprite {
+    background-image: url(../img/menu-alt-512.png);
+    background-position: 0px 0px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+@media all {
+  #afui .hover-sprite-button:hover div.uib-sprite {
+    background-image: url(../img/menu-alt-512-hover.png);
+    background-position: 0px 0px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+@media all {
+  #afui .active-sprite-button:active div.uib-sprite {
+    background-image: url(../img/menu-alt-512-active.png);
+    background-position: 0px 0px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+@media all {
+  #afui .sprite-sizing {
+    height: 93%   !important;
+    width: 50px !important;
+    -webkit-flex: 0 0 auto !important;
+    -moz-flex: 0 0 auto !important;
+    -ms-flex: 0 0 auto !important;
+    -o-flex: 0 0 auto !important;
+    flex: 0 0 auto !important;
+    min-width: 45px ;
+    max-width: 250px;
+  }
+}
+@media all {
+  #afui .testeMenuBtn {
+    margin-top: 1px;
+    margin-bottom: 0px;
+  }
+}
+#afui input.toggle + label {
+  left: 0;
+}
+.testeNotificacao {
+  padding: 10,10,10,10;
+}
+@media all {
+  #afui .notificacaoMargin {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+}
+@media all {
+  #afui .notificacaoTextStyle > label {
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+  }
+}
+@media all {
+  #afui .grid-pad {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media all and (min-width: 0px) {
+  #afui .row-height-1 > .col > .content-area {
+    min-height: 100px;
+  }
+}
+@media all {
+  #afui .testeNotificacao2,
+  #afui .table-thing.testeNotificacao2 {
+    width: 35%;
+  }
+  #afui .testeNotificacao2,
+  #afui .table-thing.testeNotificacao2 {
+    width: 35%;
+  }
+  #afui .testeNotificacao2 > .narrow-control {
+    text-align: center;
+  }
+}
+#afui input[type="radio"] + label,
+#afui input[type="checkbox"]:not(.toggle) + label {
+  float: none;
+  width: 100%;
+  margin-left: 25px;
+  margin-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#afui .wrapping-col input[type="radio"] + label,
+#afui .wrapping-col input[type="checkbox"]:not(.toggle) + label {
+  width: auto;
+}
+#afui .table-thing > .wide-control > .widget > input[type="radio"] + label,
+#afui .table-thing > .wide-control > .widget > input[type="checkbox"]:not(.toggle) + label {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
+#afui .table-thing > .wide-control > .widget > input[type="radio"] + label:before,
+#afui .table-thing > .wide-control > .widget > input[type="checkbox"]:not(.toggle) + label:before {
+  top: 0px;
+}
+#afui .wide-control > .d-margins {
+  margin: 0;
+}
+@media all {
+  #afui .notificacaoSelectMargin > .narrow-control {
+    text-align: center;
+  }
+}
+@media all {
+  #afui .NotificationSelectionMargin {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+@media all and (min-width: 0px) {
+  #afui .row-height-2 > .col > .content-area {
+    min-height: 100px;
+  }
+}
+@media all {
+  #afui .professorMargin {
+    margin-top: 8px;
+    margin-bottom: 0px;
+  }
+}
+@media all {
+  #afui .labelCheckbox p {
+    font-size: 18px;
+    font-weight: bolder;
+    text-align: left;
+  }
+}
+@media all {
+  #afui .sideByCheckbox {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+@media all {
+  #afui .labelForCheckbox {
+    margin-bottom: 0px;
+  }
+}
+#afui .button-grouped,
+#afui .button-grouped > .d-margins {
+  margin: 0;
+}
+@media all {
+  #afui .hidden {
+    display: none;
+  }
+}
+@media all {
+  #afui .imgperfil img {
+    width: 275px;
+    height: 250px;
+  }
+}
+@media all {
+  #afui .imgHeader {
+    text-align: right;
+  }
+}
+@media all {
+  #afui .wrapping-col > .mariginheader,
+  #afui .wrapping-col > .afScrollPanel > .mariginheader {
+    margin-left: 100px;
+  }
+  #afui .wrapping-col > .mariginheader,
+  #afui .wrapping-col > .afScrollPanel > .mariginheader {
+    margin-left: 100px;
+  }
+  #afui .mariginheader {
+    margin-top: 5px;
+  }
+}
+@media all {
+  #afui .marginMinApp {
+    margin-top: 2px;
+    margin-bottom: 140px;
+  }
+}
+@media all {
+  #afui .IDtext p {
+    color: #000000;
+  }
+}
+.IDtest {
+  color: black !important;
+}
+@media all {
+  #afui .marginBottomEsqSenha > .narrow-control {
+    text-align: left;
+  }
+}
+@media all {
+  #afui .wrapping-col > .marginEsqSenha,
+  #afui .wrapping-col > .afScrollPanel > .marginEsqSenha {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+  #afui .wrapping-col > .marginEsqSenha,
+  #afui .wrapping-col > .afScrollPanel > .marginEsqSenha {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+  #afui .marginEsqSenha {
+    margin-bottom: 5px;
+  }
+}
+@media all {
+  #afui .margeme {
+    margin-top: 15px;
+  }
+}
+@media all {
+  #afui .vertical-col > .hahaMargem,
+  #afui .vertical-col > .afScrollPanel > .hahaMargem {
+    margin-left: 10px;
+  }
+  #afui .vertical-col > .hahaMargem,
+  #afui .vertical-col > .afScrollPanel > .hahaMargem {
+    margin-left: 10px;
+  }
+}
+.esqueci {
+  /* unvisited link */
+  /* visited link */
+  /* mouse over link */
+  /* selected link */
+}
+.esqueci a:link {
+  color: black;
+}
+.esqueci a:visited {
+  color: black;
+}
+.esqueci a:hover {
+  color: black;
+}
+.esqueci a:active {
+  color: black;
+}

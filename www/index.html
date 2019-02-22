@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="media_button_bar/css/media_button_bar.css">
+
+		<meta charset="UTF-8">
+
+		<link rel="stylesheet" type="text/css" href="app_framework/2.1/css/af.ui.min.css">
+		<link rel="stylesheet" type="text/css" href="app_framework/2.1/css/icons.min.css">
+
+		<title>Schoolendar</title>
+
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+
+		<style>
+			@-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+			@-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+		</style>
+
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+
+		<script src="cordova.js" id="xdkJScordova_"></script>
+		<script src="js/app.js"></script>
+		<script src="js/init-app.js"></script>
+		<script src="xdk/init-dev.js"></script>
+		<script type="application/javascript" src="app_framework/2.1/appframework.js"></script>
+		<script type="application/javascript" src="app_framework/2.1/appframework.ui.js" data-ver="1"></script>
+		<script type="application/javascript" src="app_framework/themeRelease.js"></script>
+		<script>
+			$.ui.useOSThemes=false;
+		</script>
+		<script type="application/javascript" src="camera/cordova-cam.js"></script>
+		<script type="application/javascript" src="lib/jquery.min.js"></script>
+		<script type="application/javascript" src="lib/stacktrace.min.js"></script>
+		<script type="application/javascript" src="xdk/ad/af_subpage.js"></script>
+		<script type="application/javascript" src="app_framework/pageChangeRepeater.js"></script>
+		<script type="application/javascript" src="xdk/appdesigner/js/rest-of-space.js"></script>
+		<script type="application/javascript" src="js/jquery.scrollTo.min.js"></script>
+
+	</head>
+
+	<body id="afui" class="af">
+
+		<!--HEADER MENU-->
+
+		<header class="container-group wrap-element uib_w_21 Single-Color" data-uib="app_framework/header" data-ver="1" id="af-header-0">
+			<h1>Menu</h1>
+			<div class="widget-container wrapping-col single-centered"></div>
+			<div class="widget-container content-area horiz-area wrapping-col header-left">
+				<div class="uib-sprite-button default-sprite-button hover-sprite-button active-sprite-button sprite-sizing default-text widget uib_w_37 testeMenuBtn media-button-text-top" data-uib="media/sprite_button" data-ver="0" id="btnMenu">
+					<div class="uib-sprite">
+						<a id="clickToMenu" onclick="changePage('menu')" href="#menuPage"></a>
+					</div>
+				</div>
+			</div>
+			<div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+		</header>
+
+		<!--HEADER CRIAR TURMA-->
+
+		<header class="container-group wrap-element uib_w_43 Single-Color" data-uib="app_framework/header" data-ver="1" id="af-header-1">
+			<h1>Criar Turma</h1>
+			<div class="widget-container wrapping-col single-centered"></div>
+			<div class="widget-container content-area horiz-area wrapping-col header-left">
+				<div class="uib-sprite-button default-sprite-button hover-sprite-button active-sprite-button sprite-sizing default-text widget uib_w_44 testeMenuBtn media-button-text-top" data-uib="media/sprite_button" data-ver="0" id="btnMenuCriarTurma">
+					<div class="uib-sprite">
+						<a onclick="changePage('menu')" href="#menuPage"></a>
+					</div>
+				</div>
+			</div>
+			<div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+		</header>
+
+		<!--HEADER NOTIFICAÇÕES-->
+
+		<header class="container-group wrap-element uib_w_50 Single-Color" data-uib="app_framework/header" data-ver="1" id="af-header-2">
+			<h1>Notificações</h1>
+			<div class="widget-container wrapping-col single-centered"></div>
+			<div class="widget-container content-area horiz-area wrapping-col header-left">
+				<div class="uib-sprite-button default-sprite-button hover-sprite-button active-sprite-button sprite-sizing default-text widget uib_w_51 testeMenuBtn media-button-text-top" data-uib="media/sprite_button" data-ver="0" id="btnMenuNotificacao">
+					<div class="uib-sprite">
+						<a onclick="changePage('menu')" href="#menuPage"></a>
+					</div>
+				</div>
+			</div>
+			<div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+		</header>
+
+		<!--HEADER PERFIL-->
+
+		<header class="container-group wrap-element uib_w_54 Single-Color" data-uib="app_framework/header" data-ver="1" id="af-header-3">
+			<h1>Perfil</h1>
+			<div class="widget-container wrapping-col single-centered"></div>
+			<div class="widget-container content-area horiz-area wrapping-col header-left">
+				<div class="uib-sprite-button default-sprite-button hover-sprite-button active-sprite-button sprite-sizing default-text widget uib_w_55 btnMenuMargin media-button-text-top" data-uib="media/sprite_button" data-ver="0" id="btnMenuPerfil">
+					<div class="uib-sprite">
+						<a onclick="changePage('menu')" href="#menuPage"></a>
+					</div>
+				</div>
+			</div>
+			<div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+		</header>
+
+		<!--HEADER TURMAS-->
+
+		<header class="container-group wrap-element uib_w_99 Single-Color" data-uib="app_framework/header" data-ver="1" id="af-header-4">
+			<h1>Turmas</h1>
+			<div class="widget-container wrapping-col single-centered"></div>
+			<div class="widget-container content-area horiz-area wrapping-col header-left">
+				<div class="uib-sprite-button default-sprite-button hover-sprite-button active-sprite-button sprite-sizing default-text widget uib_w_55 btnMenuMargin media-button-text-top" data-uib="media/sprite_button" data-ver="0" id="btnMenuTurmas">
+					<div class="uib-sprite">
+						<a onclick="changePage('menu')" href="#menuPage"></a>
+					</div>
+				</div>
+			</div>
+			<div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+		</header>
+
+		<!--HEADER EVENTOS-->
+
+		<header class="container-group wrap-element uib_w_103 Single-Color" data-uib="app_framework/header" data-ver="1" id="titleTurma">
+			<h1 id="nomeTurmaHeader">Eventos</h1>
+			<div class="widget-container wrapping-col single-centered"></div>
+			<div class="widget-container content-area horiz-area wrapping-col header-left">
+				<div class="uib-sprite-button default-sprite-button hover-sprite-button active-sprite-button sprite-sizing default-text widget uib_w_104 testeMenuBtn media-button-text-top" data-uib="media/sprite_button" data-ver="0" id="btnTurmaEvent">
+					<div class="uib-sprite">
+						<a onclick="changePage('menu')" href="#menuPage"></a>
+					</div>
+				</div>
+			</div>
+			<div class="widget-container content-area horiz-area wrapping-col header-right">
+				<div class="widget uib_w_105 scale-image imgHeader mariginheader" data-uib="media/img" data-ver="0">
+					<figure class="figure-align">
+						<a onclick="carregaUsers()" href="#turmaUsers" id="btnTurmaEventImg">
+							<img src="img/calender.png" id="imgTurma">
+						</a>
+						<figcaption data-position="bottom"></figcaption>
+					</figure>
+				</div>
+			</div>
+		</header>
+
+		<!--HEADER TURMAUSER-->
+
+		<header class="container-group wrap-element uib_w_108 Single-Color" data-uib="app_framework/header" data-ver="1" id="titleMembros">
+			<h1 id="titleMembrosHeader">Foto e Membros</h1>
+			<div class="widget-container wrapping-col single-centered"></div>
+			<div class="widget-container content-area horiz-area wrapping-col header-left">
+				<div class="uib-sprite-button default-sprite-button hover-sprite-button active-sprite-button sprite-sizing default-text widget uib_w_121 media-button-text-top testeMenuBtn" data-uib="media/sprite_button" data-ver="0">
+					<div class="uib-sprite">
+						<a onclick="changePage('menu')" href="#menuPage"></a>
+					</div>
+				</div>
+			</div>
+			<div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+		</header>
+
+		<!--HEADER USUÁRIO-->
+
+		<header class="container-group wrap-element uib_w_129 Single-Color" data-uib="app_framework/header" data-ver="1" id="af-header-6">
+			<h1>Detalhes</h1>
+			<div class="widget-container wrapping-col single-centered"></div>
+			<div class="widget-container content-area horiz-area wrapping-col header-left">
+				<div class="uib-sprite-button default-sprite-button hover-sprite-button active-sprite-button sprite-sizing default-text widget uib_w_130 testeMenuBtn" data-uib="media/sprite_button" data-ver="0">
+					<div class="uib-sprite">
+						<a onclick="changePage('menu')" href="#menuPage"></a>
+					</div>
+				</div>
+			</div>
+			<div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+		</header>
+
+		<!--HEADER ADDMEMBROS-->
+
+		<header class="container-group wrap-element uib_w_137 Single-Color" data-uib="app_framework/header" data-ver="1" id="af-header-7">
+			<h1>Add. Membros</h1>
+			<div class="widget-container wrapping-col single-centered"></div>
+			<div class="widget-container content-area horiz-area wrapping-col header-left"></div>
+			<div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+		</header>
+
+		<!--HEADER ADDMEMBROSTURMA-->
+
+		<header class="container-group wrap-element uib_w_151 Single-Color" data-uib="app_framework/header" data-ver="1" id="af-header-8">
+			<h1>Add. Membros</h1>
+			<div class="widget-container wrapping-col single-centered"></div>
+			<div class="widget-container content-area horiz-area wrapping-col header-left">
+				<div class="uib-sprite-button default-sprite-button hover-sprite-button active-sprite-button sprite-sizing default-text widget uib_w_152 media-button-text-top testeMenuBtn" data-uib="media/sprite_button" data-ver="0">
+					<div class="uib-sprite">
+						<a onclick="changePage('menu')" href="#menuPage"></a>
+					</div>
+				</div>
+			</div>
+			<div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+		</header>
+
+		<!--HEADER CRIAREVENTO-->
+
+		<header class="container-group wrap-element uib_w_153 Single-Color" data-uib="app_framework/header" data-ver="1" id="af-header-9">
+			<h1>Criar Evento</h1>
+			<div class="widget-container wrapping-col single-centered"></div>
+			<div class="widget-container content-area horiz-area wrapping-col header-left">
+				<div class="uib-sprite-button default-sprite-button hover-sprite-button active-sprite-button sprite-sizing default-text widget uib_w_154 media-button-text-top testeMenuBtn" data-uib="media/sprite_button" data-ver="0">
+					<div class="uib-sprite">
+						<a onclick="changePage('menu')" href="#menuPage"></a>
+					</div>
+				</div>
+			</div>
+			<div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+		</header>
+
+		<!--HEADER EDITAREVENTO-->
+
+		<header class="container-group wrap-element uib_w_153 Single-Color" data-uib="app_framework/header" data-ver="1" id="af-header-11">
+			<h1>Editar Evento</h1>
+			<div class="widget-container wrapping-col single-centered"></div>
+			<div class="widget-container content-area horiz-area wrapping-col header-left">
+				<div class="uib-sprite-button default-sprite-button hover-sprite-button active-sprite-button sprite-sizing default-text widget uib_w_154 media-button-text-top testeMenuBtn" data-uib="media/sprite_button" data-ver="0">
+					<div class="uib-sprite">
+						<a onclick="changePage('menu')" href="#menuPage"></a>
+					</div>
+				</div>
+			</div>
+			<div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+		</header>
+
+		<!--HEADER EVENTO-->
+
+		<header class="container-group wrap-element uib_w_159 Single-Color" data-uib="app_framework/header" data-ver="1" id="af-header-10">
+			<h1>Evento</h1>
+			<div class="widget-container wrapping-col single-centered"></div>
+			<div class="widget-container content-area horiz-area wrapping-col header-left">
+				<div class="uib-sprite-button default-sprite-button hover-sprite-button active-sprite-button sprite-sizing default-text widget uib_w_160 media-button-text-top testeMenuBtn" data-uib="media/sprite_button" data-ver="0">
+					<div class="uib-sprite">
+						<a onclick="changePage('menu')" href="#menuPage"></a>
+					</div>
+				</div>
+			</div>
+			<div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+		</header>
+
+		<div class="uwrap" id="content">
+
+			<!--MAIN PAGE-->
+
+			<div class="upage vertical-col left panel esqueci" id="mainpage" data-header="none" data-footer="none">
+				<div class="widget uib_w_25 imgCalender imgCenter imgMargin" data-uib="media/img" data-ver="0">
+					<figure class="figure-align">
+						<img src="img/calender.png">
+
+						<figcaption data-position="bottom"></figcaption>
+					</figure>
+				</div>
+				<div class="widget uib_w_2 imgCenter imgLogo" data-uib="media/img" data-ver="0">
+					<figure class="figure-align">
+						<img src="img/logo.png">
+
+						<figcaption data-position="bottom"></figcaption>
+					</figure>
+				</div>
+				<div class="table-thing with-label widget uib_w_35 labelTextStyle" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left" for="emailLogin">Email</label>
+
+					<input class="wide-control" type="email" onclick="scrolling()" id="emailLogin">
+				</div>
+				<div class="table-thing with-label widget uib_w_4 labelTextStyle marginEsqSenha" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left" for="senhaLogin">Senha</label>
+
+					<input class="wide-control" type="password" onclick="scrolling()" id="senhaLogin">
+				</div>
+
+				<a class="hahaMargem" href="#esqueceSenha">Esqueci minha senha</a>
+
+				<a class="button widget uib_w_61 btnTextStyle margeme icon right black" data-uib="app_framework/button" data-ver="1" id="logIn" onclick="login()" data-transition="fade" data-page-type="document_page"> Login</a>
+				<a class="hidden" data-uib="app_framework/button" data-ver="1" id="btnLogMenu" data-transition="fade" data-page-type="document_page" onclick="changePage('menu')" href="#menuPage"></a>
+				<a class="button widget uib_w_6  btnTextStyle icon add black inputMargin" data-uib="app_framework/button" data-ver="1" id="cadastroLogin" onclick="changePage('cadastro')" href="#cadastro"> Cadastrar-se</a>
+				<div class="tarea widget uib_w_7 footerStyle" data-uib="media/text" data-ver="0" name="uib_w_7">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p>Vinícius Meng ©&nbsp;2017</p>
+						<p id="servidores"></p>
+					</div>
+				</div>
+			</div>
+
+			<!--CADASTRO-->
+
+			<div class="upage vertical-col left panel" id="cadastro" data-header="none" data-footer="none">
+				<div class="tarea widget uib_w_20 escolhaFotoStyle" data-uib="media/text" data-ver="0" name="uib_w_20">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p>Escolha sua foto de perfil:</p>
+					</div>
+				</div>
+				<div class="widget uib_w_27 imgCadastro imgCenter" data-uib="media/img" data-ver="0">
+					<figure class="figure-align">
+						<img src="img/calender.png" id="IMAGE">
+						<figcaption data-position="bottom"></figcaption>
+					</figure>
+				</div>
+				<a class="button widget uib_w_27 btnTextStyle icon picture black" data-uib="app_framework/button" data-ver="1" onclick="getPhoto(Camera.PictureSourceType.SAVEDPHOTOALBUM, '#IMAGE')" id="btnEscolherFoto"> Escolher Uma Foto</a>
+
+				<div class="table-thing with-label widget uib_w_11 labelTextStyle" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left" for="usernameCadastro">Nome de Usuário</label>
+
+					<input class="wide-control" type="text" onclick="scrolling()" name="usernameCadastro" id="usernameCadastro">
+				</div>
+
+				<div class="table-thing with-label widget uib_w_12 labelTextStyle" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left" for="emailCadastro">Email</label>
+
+					<input class="wide-control" type="email" onclick="scrolling()" id="emailCadastro">
+				</div>
+
+				<div class="table-thing with-label widget uib_w_13 labelTextStyle" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left" for="passwordCadastro">Senha</label>
+
+					<input class="wide-control" type="password" onclick="scrolling()" id="passwordCadastro">
+				</div>
+
+				<div class="table-thing with-label widget uib_w_111 labelTextStyle" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left">Defina uma pergunta de segurança:</label>
+					<input class="wide-control" id="pergunta" placeholder="Anote sua pergunta e sua resposta" type="text">
+				</div>
+
+				<div class="table-thing with-label widget uib_w_112 d-margins labelTextStyle" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left">Defina a resposta:</label>
+					<input class="wide-control" id="resposta" placeholder="Para poder trocar sua senha futuramente" type="text">
+				</div>
+
+				<div class="tarea widget uib_w_78 labelCheckbox labelForCheckbox" data-uib="media/text" data-ver="0" name="uib_w_78">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p>Você é?</p>
+					</div>
+				</div>
+				<div class="button-grouped flex widget uib_w_87 d-margins" data-uib="app_framework/button_group" data-ver="1">
+					<a class="button widget uib_w_88 icon user black" data-uib="app_framework/button" data-ver="1" style="border-left: 1px solid rgb(102, 102, 102); border-top-left-radius: 6px; border-bottom-left-radius: 6px;" onclick="alunoClass()" id="isAluno"> Aluno</a>
+					<a class="button widget uib_w_90" data-uib="app_framework/button" data-ver="1" onclick="professorClass()" id="isProfessor" style="border-top-right-radius: 6px; border-bottom-right-radius: 6px;"> Professor</a>
+				</div>
+
+				<a class="button widget uib_w_17 icon right black btnTextStyle" data-uib="app_framework/button" data-ver="1" onclick="cadastro()" id="buttonCadastro"> Finalizar Cadastro</a>
+				<a class="hidden" data-uib="app_framework/button" data-ver="1" id="btnVoltaLogin" data-transition="fade" data-page-type="document_page" onclick="changePage('login')" href="#mainpage"></a>
+			</div>
+
+			<!--MENU-->
+
+			<div class="upage vertical-col left panel" id="menuPage" data-header="af-header-0" data-footer="none">
+				<a class="button widget uib_w_102 firstButtonMargin menuTextStyle icon calendar black" data-uib="app_framework/button" data-ver="1" id="bntTurmas" onclick="carregaTurmasMenu()" href="#turmaPage"> Turmas</a>
+				<a class="button widget uib_w_62 menuTextStyle btnMenuMargin icon add black" data-uib="app_framework/button" data-ver="1" id="criaTurma" onclick="changePage('criarTurma')" href="#criarTurma"> Criar Turma</a>
+				<a class="button widget uib_w_63 btnMenuMargin menuTextStyle icon settings black" data-uib="app_framework/button" data-ver="1" onclick="carregaPerfilMenu()" id="configuraPerfil" href="#configurarPerfil"> Perfil</a>
+				<a class="button widget uib_w_64 btnMenuMargin menuTextStyle icon clock black" data-uib="app_framework/button" data-ver="1" onclick="changePage('notificacoes')" id="configuraNotificacao" href="#configurarNotificacao"> Notificações</a><a class="button widget uib_w_109 menuTextStyle marginMinApp icon down black"
+				data-uib="app_framework/button" data-ver="1" onclick="minApp()" id="minimizarBtn"> Min. App</a>
+				<a class="hidden" data-uib="app_framework/button" data-ver="1" id="btnSair" href="#mainpage"></a>
+				<a class="button widget uib_w_65 btnMenuMargin menuTextStyle icon error black" onclick="sair()" data-uib="app_framework/button" data-ver="1"> Sair</a>
+			</div>
+
+			<!--CRIAR TURMA-->
+
+			<div class="upage vertical-col left panel" id="criarTurma" data-header="af-header-1" data-footer="none">
+				<div class="tarea widget uib_w_45 escolhaFotoStyle" data-uib="media/text" data-ver="0" name="uib_w_45">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p id="kek">Escolha uma foto para a turma:</p>
+					</div>
+				</div>
+				<div class="widget uib_w_47 imgCenter imgperfil" data-uib="media/img" data-ver="0">
+					<figure class="figure-align">
+						<img src="img/calender.png" id="IMAGE1">
+
+						<figcaption data-position="bottom"></figcaption>
+					</figure>
+				</div>
+				<a class="button widget uib_w_47 btnTextStyle icon picture black" data-uib="app_framework/button" data-ver="1" onclick="getPhoto(Camera.PictureSourceType.SAVEDPHOTOALBUM, '#IMAGE1')" id="btnFotoCriarTurma"> Escolher Uma Foto</a>
+				<div class="table-thing with-label widget uib_w_48 d-margins labelTextStyle" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left" for="nomeTurmaCriar">Nome da Turma:</label>
+
+					<input class="wide-control" type="text" onclick="scrolling()" id="nomeTurmaCriar">
+				</div>
+				<a class="button widget uib_w_49 btnTextStyle icon add black" data-uib="app_framework/button" data-ver="1" id="btnCriarTurma" onclick="criarTurma()"> Criar Turma</a>
+				<a class="hidden" data-uib="app_framework/button" data-ver="1" onclick="changePage('addMembros')" id="btnCriarTurmaNext" href="#addMembros"></a>
+			</div>
+
+			<!--NOTIFICAÇÕES-->
+
+			<div class="upage vertical-col left panel" id="configurarNotificacao" data-header="af-header-2" data-footer="none">
+
+				<a class="button widget uib_w_91 notificacaoMargin btnTextStyle icon check black" data-uib="app_framework/button" data-ver="1" onclick="discheck()" id="idNotificacao"> Ativar Notificações</a>
+
+				<div class="tarea widget uib_w_92 labelCheckbox NotificationSelectionMargin" data-uib="media/text" data-ver="0" name="uib_w_92">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p id="labelNotificacao">Defina as notificações:</p>
+					</div>
+				</div>
+
+				<a class="button widget uib_w_95 d-margins icon clock black" data-uib="app_framework/button" data-ver="1" onclick="discheckOneDay()" id="oneDay"> 1 dia antes do evento</a>
+				<a class="button widget uib_w_96 d-margins" data-uib="app_framework/button" data-ver="1" onclick="discheckTwoDays()" id="twoDays"> 2 dias antes do evento</a>
+				<a class="button widget uib_w_97 d-margins" data-uib="app_framework/button" data-ver="1" onclick="discheckOneWeek()" id="oneWeek"> 1 semana antes do evento</a>
+				<a class="button widget uib_w_98 d-margins" data-uib="app_framework/button" data-ver="1" onclick="discheckOneMonth()" id="oneMonth"> 1 mês antes do evento</a>
+
+				<a class="button widget uib_w_74 icon clock black btnTextStyle inputMargin" data-uib="app_framework/button" data-ver="1" onclick="atualizaNotificacao()" id="atlNotificacao"> Alterar Configurações</a>
+			</div>
+
+			<!--PERFIL-->
+
+			<div class="upage vertical-col left panel" id="configurarPerfil" data-header="af-header-3" data-footer="none">
+				<div class="tarea widget uib_w_56 escolhaFotoStyle" data-uib="media/text" data-ver="0" name="uib_w_56">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p id="idPagePerfil">Seu ID:</p>
+					</div>
+				</div>
+				<div class="tarea widget uib_w_56 escolhaFotoStyle" data-uib="media/text" data-ver="0" name="uib_w_56">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p>Escolha uma foto de perfil:</p>
+					</div>
+				</div>
+				<div class="widget uib_w_58 imgCenter imgperfil" data-uib="media/img" data-ver="0">
+					<figure class="figure-align">
+						<img src="img/calender.png" id="IMAGE2">
+
+						<figcaption data-position="bottom"></figcaption>
+					</figure>
+				</div>
+				<a class="button widget uib_w_58 icon picture black btnTextStyle" data-uib="app_framework/button" data-ver="1" onclick="getPhoto(Camera.PictureSourceType.SAVEDPHOTOALBUM, '#IMAGE2')" id="btnFotoPerfil"> Escolher Uma Foto</a>
+				<div class="table-thing with-label widget uib_w_59 d-margins labelTextStyle" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left" for="usernamePerfil">Nome de Usuário:</label>
+					<input class="wide-control" type="text" onclick="scrolling()" id="usernamePerfil">
+				</div>
+				<a class="button widget uib_w_60 d-margins icon refresh black btnTextStyle" data-uib="app_framework/button" data-ver="1" onclick="atualizaPerfil()" id="atlPerfil"> Atualizar Perfil</a>
+			</div>
+
+			<!--TURMAS-->
+
+			<div class="upage vertical-col left panel" id="turmaPage" data-header="af-header-4" data-footer="none">
+				<div class="text-container escolhaFotoStyle">
+					<p id="labelTurmas"></p>
+				</div>
+				<ul class="list widget uib_w_100 d-margins" data-uib="app_framework/listview" data-ver="1" id="listaTurmas">
+					<li class="widget uib_w_107" data-uib="app_framework/listitem" data-ver="1"><a class="icon calendar">Sem Turmas!</a>
+					</li>
+				</ul>
+			</div>
+
+			<!--EVENTOS-->
+
+			<div class="upage vertical-col left panel" id="turmaEvent" data-header="titleTurma" data-footer="none">
+				<div class="text-container escolhaFotoStyle">
+					<p id="labelEventos"></p>
+				</div>
+				<ul class="list widget uib_w_106 d-margins" data-uib="app_framework/listview" data-ver="1" id="listaEventos">
+					<li class="widget uib_w_107" data-uib="app_framework/listitem" data-ver="1"><a class="icon calendar">Sem Eventos!</a>
+					</li>
+				</ul>
+				<a class="button widget uib_w_125 d-margins btnTextStyle icon add black" data-uib="app_framework/button" id="btnCriarEventoRep" href="#criarEvento" data-ver="1"> Criar Evento</a>
+			</div>
+
+			<!--USERS-->
+
+			<div class="upage vertical-col left panel" id="turmaUsers" data-header="titleMembros" data-footer="none">
+				<div class="widget uib_w_122 d-margins imgCadastro" data-uib="media/img" data-ver="0">
+					<figure class="figure-align">
+						<img src="img/calender.png" id="IMAGE3">
+
+						<figcaption data-position="bottom"></figcaption>
+					</figure>
+				</div>
+				<a class="button widget uib_w_27 btnTextStyle icon picture black" data-uib="app_framework/button" data-ver="1" onclick="getPhoto(Camera.PictureSourceType.SAVEDPHOTOALBUM, '#IMAGE3')" id="btnEscolherFotoUsers"> Trocar Foto da Turma</a>
+				<div class="table-thing with-label widget uib_w_127 d-margins labelTextStyle" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left">Nome da Turma</label>
+					<input id="nomeTurmaUsersTroca" class="wide-control" type="text">
+				</div>
+				<a class="button widget uib_w_128 d-margins icon refresh black btnTextStyle" onclick="atualizaNomeTurma()" data-uib="app_framework/button" data-ver="1"> Mudar Nome da Turma</a>
+				<ul class="list widget uib_w_123 d-margins" data-uib="app_framework/listview" data-ver="1" id="listaMembros">
+					<li class="widget uib_w_124" data-uib="app_framework/listitem" data-ver="1"><a class="icon user">Sem membros!</a>
+					</li>
+				</ul>
+				<a class="button widget uib_w_126 d-margins btnTextStyle icon add black" data-uib="app_framework/button" id="addMembrosTurmaBtn" href="#addMembrosTurma" data-ver="1"> Adicionar Membros</a>
+				<a class="button widget uib_w_166 d-margins icon error black btnTextStyle" onclick="sairTurma()" id="sairTurma" data-uib="app_framework/button" data-ver="1"> Sair da Turma</a>
+				<a class="hidden" onclick="carregaTurmasMenu()" href="#turmaPage" id="sairTurmaBtn" data-uib="app_framework/button" data-ver="1"></a>
+			</div>
+
+			<!--RECUPERASENHA-->
+
+			<div class="upage vertical-col left panel" id="esqueceSenha" data-header="none" data-footer="none">
+				<div class="tarea widget uib_w_113 d-margins" data-uib="media/text" data-ver="0" name="uib_w_113">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p><strong>Escolha a forma de recuperar sua pergunta de segurança:</strong>
+						</p>
+					</div>
+				</div>
+				<div class="button-grouped flex widget uib_w_87 d-margins" data-uib="app_framework/button_group" data-ver="1">
+					<a class="button widget uib_w_88 icon key black" data-uib="app_framework/button" data-ver="1" style="border-left: 1px solid rgb(102, 102, 102); border-top-left-radius: 6px; border-bottom-left-radius: 6px;" onclick="isID()" id="isId"> ID</a>
+					<a class="button widget uib_w_90" data-uib="app_framework/button" data-ver="1" onclick="isEmail()" id="isEmail" style="border-top-right-radius: 6px; border-bottom-right-radius: 6px;"> Email</a>
+				</div>
+				<div class="table-thing with-label widget uib_w_114 d-margins" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left" id="labelRecupera" for="inputId">ID</label>
+
+					<input class="wide-control" id="inputId" type="number">
+					<input class="wide-control" id="inputEmail" type="hidden">
+				</div>
+				<a class="button widget uib_w_115 d-margins btnTextStyle icon download black" data-uib="app_framework/button" data-ver="1" onclick="recuperaPergunta()" id="recupPergunta"> Recuperar Pergunta</a>
+				<div class="tarea widget uib_w_116 d-margins escolhaFotoStyle hidden" data-uib="media/text" id="divResposta" data-ver="0" name="uib_w_116">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p id="pergnt">Pergunta</p>
+					</div>
+				</div>
+				<div class="table-thing with-label widget uib_w_117 d-margins" data-uib="app_framework/input" data-ver="1">
+					<input class="wide-control" id="inputResposta" type="hidden" placeholder="Resposta">
+				</div>
+				<a class="button widget uib_w_118 d-margins btnTextStyle icon upload black hidden" onclick="checaResposta()" id="pageTrocaSenha1" data-uib="app_framework/button" data-ver="1"> Enviar Resposta</a>
+				<a class="hidden" data-uib="app_framework/button" data-ver="1" id="pageTrocaSenha" href="#mudaSenha"></a>
+			</div>
+
+			<!--MUDASENHA-->
+
+			<div class="upage vertical-col left panel" id="mudaSenha" data-header="none" data-footer="none">
+				<div class="table-thing with-label widget uib_w_119 d-margins labelTextStyle" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left">Nova Senha</label>
+					<input class="wide-control" id="novaSenha" placeholder="Anote sua nova senha para não se esquecer" type="password">
+				</div>
+				<a class="button widget uib_w_120 d-margins icon key black" onclick="trocaSenha()" data-uib="app_framework/button" data-ver="1"> Gravar Nova Senha</a>
+				<a class="hidden" href="#mainpage" id="trocaSenhaMainPage" data-uib="app_framework/button" data-ver="1"></a>
+			</div>
+
+			<!--USUÁRIO-->
+
+			<div class="upage vertical-col left panel" id="usuario" data-header="af-header-6" data-footer="none">
+				<div class="widget uib_w_131 d-margins imgCadastro" data-uib="media/img" data-ver="0">
+					<figure class="figure-align">
+						<img src="img/calender.png" id="fotoUserDetalhes">
+
+						<figcaption data-position="bottom"></figcaption>
+					</figure>
+				</div>
+				<div class="tarea widget uib_w_133 d-margins escolhaFotoStyle" data-uib="media/text" data-ver="0" name="uib_w_133">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p id="idUser">ID:&nbsp;</p>
+					</div>
+				</div>
+				<input class="wide-control" id="userIdDetalhe" type="hidden">
+				<div class="tarea widget uib_w_132 d-margins escolhaFotoStyle" data-uib="media/text" data-ver="0" name="uib_w_132">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p id="nomeUser">Nome de usuário:</p>
+					</div>
+				</div>
+				<div class="tarea widget uib_w_134 d-margins escolhaFotoStyle" data-uib="media/text" data-ver="0" name="uib_w_134">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p id="emailUser">Email:</p>
+					</div>
+				</div>
+				<a class="button widget uib_w_135 d-margins icon error black btnTextStyle" id="removeMembro" onclick="removerMembro()" data-uib="app_framework/button" data-ver="1"> Remover Membro</a>
+				<a class="button widget uib_w_136 d-margins btnTextStyle icon star black" id="tornaRep" onclick="tornarRepresentante()" data-uib="app_framework/button" data-ver="1"> Tornar Representante</a>
+				<a class="hidden" id="voltaUsers" onclick="carregaUsers()" href="#turmaUsers" data-uib="app_framework/button" data-ver="1"></a>
+			</div>
+
+			<!--ADDMEMBROS-->
+
+			<div class="upage vertical-col left panel" id="addMembros" data-header="af-header-7" data-footer="none">
+				<div class="tarea widget uib_w_142 d-margins escolhaFotoStyle" data-uib="media/text" data-ver="0" name="uib_w_142">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p>Selecione o método para procurar usuários:</p>
+					</div>
+				</div>
+				<div class="button-grouped flex widget uib_w_138 mariginheader" data-uib="app_framework/button_group" data-ver="1">
+					<a class="button widget uib_w_139 icon check black" data-uib="app_framework/button" data-ver="1" style="border-left: 1px solid rgb(102, 102, 102); border-top-left-radius: 6px; border-bottom-left-radius: 6px;" onclick="isAddID()" id="isIdAdd"> Id</a>
+					<a class="button widget uib_w_141" data-uib="app_framework/button" data-ver="1" onclick="isAddEmail()" style="border-top-right-radius: 6px; border-bottom-right-radius: 6px;" id="isEmailAdd"> Email</a>
+				</div>
+				<div class="table-thing with-label widget uib_w_143 d-margins" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left">Digite a informação sobre quem deseja add.:</label>
+					<input id="procuraInput" onkeyup="procuraUsers()" class="wide-control" type="text">
+				</div>
+				<input id="idTurmaCriada" class="wide-control" type="hidden">
+				<div class="tarea widget uib_w_146 d-margins escolhaFotoStyle" data-uib="media/text" data-ver="0" name="uib_w_146">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p>Clique para selecionar:</p>
+					</div>
+				</div>
+				<ul class="list widget uib_w_144 d-margins" data-uib="app_framework/listview" data-ver="1" id="listaUserProcurado">
+					<li class="widget uib_w_145" data-uib="app_framework/listitem" data-ver="1"><a class="icon user">Usuário pesquisado</a>
+					</li>
+				</ul>
+				<div class="tarea widget uib_w_147 d-margins escolhaFotoStyle" data-uib="media/text" data-ver="0" name="uib_w_147">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p>Usuários selecionados (clique para remover):</p>
+					</div>
+				</div>
+				<ul class="list widget uib_w_148 d-margins" data-uib="app_framework/listview" data-ver="1" id="listaUserSelecionado">
+					<li class="widget uib_w_149" data-uib="app_framework/listitem" id="listaUserSelec" data-ver="1"><a class="icon user">Usuário selecionado</a>
+					</li>
+				</ul><a class="button widget uib_w_150 d-margins icon add black btnTextStyle" onclick="addMembrosIrTurma()" data-uib="app_framework/button" data-ver="1"> Criar Turma</a>
+			</div>
+
+			<!--ADDMEMBROSTURMA-->
+
+			<div class="upage vertical-col left panel" id="addMembrosTurma" data-header="af-header-8" data-footer="none">
+				<div class="tarea widget uib_w_142 d-margins escolhaFotoStyle" data-uib="media/text" data-ver="0" name="uib_w_142">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p>Selecione o método para procurar usuários:</p>
+					</div>
+				</div>
+				<div class="button-grouped flex widget uib_w_138 mariginheader" data-uib="app_framework/button_group" data-ver="1">
+					<a class="button widget uib_w_139 icon check black" data-uib="app_framework/button" data-ver="1" style="border-left: 1px solid rgb(102, 102, 102); border-top-left-radius: 6px; border-bottom-left-radius: 6px;" onclick="isAddIDTurma()" id="isIdAddTurma"> Id</a>
+					<a class="button widget uib_w_141" data-uib="app_framework/button" data-ver="1" onclick="isAddEmailTurma()" style="border-top-right-radius: 6px; border-bottom-right-radius: 6px;" id="isEmailAddTurma"> Email</a>
+				</div>
+				<div class="table-thing with-label widget uib_w_143 d-margins" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left">Digite a informação sobre quem deseja add.:</label>
+					<input id="procuraInputTurma" onkeyup="procuraUsersTurma()" class="wide-control" type="text">
+				</div>
+				<div class="tarea widget uib_w_146 d-margins escolhaFotoStyle" data-uib="media/text" data-ver="0" name="uib_w_146">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p>Clique para selecionar:</p>
+					</div>
+				</div>
+				<ul class="list widget uib_w_144 d-margins" data-uib="app_framework/listview" data-ver="1" id="listaUserProcuradoTurma">
+					<li class="widget uib_w_145" data-uib="app_framework/listitem" data-ver="1"><a class="icon user">Usuário pesquisado</a>
+					</li>
+				</ul>
+				<div class="tarea widget uib_w_147 d-margins escolhaFotoStyle" data-uib="media/text" data-ver="0" name="uib_w_147">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p>Usuários selecionados (clique para remover):</p>
+					</div>
+				</div>
+				<ul class="list widget uib_w_148 d-margins" data-uib="app_framework/listview" data-ver="1" id="listaUserSelecionadoTurma">
+					<li class="widget uib_w_149" id="listaUserSelecTurma" data-uib="app_framework/listitem" data-ver="1"><a class="icon user">Usuário selecionado</a>
+					</li>
+				</ul><a class="button widget uib_w_150 d-margins icon add black btnTextStyle" onclick="addMembrosIrTurmaTurma()" data-uib="app_framework/button" data-ver="1"> Add. Membros</a>
+			</div>
+            
+            <!--CRIAREVENTO-->
+
+			<div class="upage vertical-col left panel" id="criarEvento" data-header="af-header-9" data-footer="none">
+				<div class="table-thing with-label widget uib_w_155 d-margins labelTextStyle" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left">Nome do Evento</label>
+					<input id="nomedoevento" class="wide-control" type="text">
+				</div>
+				<div class="table-thing with-label widget uib_w_156 d-margins labelTextStyle" data-uib="app_framework/textarea" data-ver="1">
+					<label class="narrow-control label-top-left">Descrição do Evento</label>
+					<textarea id="descricaodoevento" class="wide-control" rows="3" wrap="soft"></textarea>
+				</div>
+				<div class="table-thing with-label widget uib_w_157 d-margins labelTextStyle" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left">Data e Hora</label>
+					<input id="datetimedoevento" class="wide-control" min="2017-11-17T08:30" type="datetime-local">
+				</div>
+				<a class="button widget uib_w_158 d-margins icon add black btnTextStyle" onclick="criarEvento()" data-uib="app_framework/button" data-ver="1"> Criar Evento</a>
+				<a class="hidden" id="eventosRecarrega" onclick="carregaEventos(turma[turmaAtual]['id'], turmaAtual)" href="#turmaEvent" data-uib="app_framework/button" data-ver="1"></a>
+			</div>
+
+			<!--EDITAREVENTO-->
+
+			<div class="upage vertical-col left panel" id="editarEvento" data-header="af-header-11" data-footer="none">
+				<div class="table-thing with-label widget uib_w_155 d-margins labelTextStyle" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left">Nome do Evento</label>
+					<input id="nomedoeventoEditar" class="wide-control" type="text">
+				</div>
+				<input id="valueOfI" class="wide-control" type="hidden">
+				<div class="table-thing with-label widget uib_w_156 d-margins labelTextStyle" data-uib="app_framework/textarea" data-ver="1">
+					<label class="narrow-control label-top-left">Descrição do Evento</label>
+					<textarea id="descricaodoeventoEditar" class="wide-control" rows="3" wrap="soft"></textarea>
+				</div>
+				<div class="table-thing with-label widget uib_w_157 d-margins labelTextStyle" data-uib="app_framework/input" data-ver="1">
+					<label class="narrow-control label-top-left">Data e Hora</label>
+					<input id="datetimedoeventoEditar" class="wide-control" min="2017-11-17T08:30" type="datetime-local">
+				</div>
+				<a class="button widget uib_w_158 d-margins icon refresh black btnTextStyle" onclick="atualizarEvento()" data-uib="app_framework/button" data-ver="1"> Atualizar Evento</a>
+				<a class="hidden" id="eventosRecarregaEdita" onclick="carregaEventos(turma[turmaAtual]['id'], turmaAtual)" href="#turmaEvent" data-uib="app_framework/button" data-ver="1"></a>
+			</div>
+            
+            <!--EVENTO-->
+            
+			<div class="upage vertical-col left panel" id="evento" data-header="af-header-10" data-footer="none">
+				<div class="tarea widget uib_w_161 d-margins" data-uib="media/text" data-ver="0" name="uib_w_161">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<h1 id="nomeEventoDetalhe">Nome do Evento</h1>
+					</div>
+				</div>
+				<input class="wide-control" id="eventoIdDetalhe" type="hidden">
+				<div class="tarea widget uib_w_162 d-margins" data-uib="media/text" data-ver="0" name="uib_w_162">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p id="descricaoEventoDetalhe">Descrição do evento</p>
+					</div>
+				</div>
+				<div class="tarea widget uib_w_163 d-margins escolhaFotoStyle" data-uib="media/text" data-ver="0" name="uib_w_163">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p id="dataEventoDetalhe">Data:</p>
+					</div>
+				</div>
+				<div class="tarea widget uib_w_164 d-margins escolhaFotoStyle" data-uib="media/text" data-ver="0" name="uib_w_164">
+					<div class="widget-container left-receptacle"></div>
+					<div class="widget-container right-receptacle"></div>
+					<div class="text-container">
+						<p id="horaEventoDetalhe">Hora:</p>
+					</div>
+				</div>
+				<a class="button widget uib_w_165 d-margins icon pencil black btnTextStyle" onclick="editarEvento()" id="editaEvento" data-uib="app_framework/button" data-ver="1"> Editar Evento</a>
+				<a class="hidden" id="editaEventoHref" href="#editarEvento" data-uib="app_framework/button" data-ver="1"></a>
+				<a class="button widget uib_w_166 d-margins icon error black btnTextStyle" onclick="excluirEvento()" id="excluiEvento" data-uib="app_framework/button" data-ver="1"> Excluir Evento</a>
+				<a class="hidden" id="eventosRecarregaExcluir" onclick="carregaEventos(turma[turmaAtual]['id'], turmaAtual)" href="#turmaEvent" data-uib="app_framework/button" data-ver="1"></a>
+			</div>
+		</div>
+
+		<script type="application/javascript" src="js/index_user_scripts.js"></script>
+
+	</body>
+
+</html>
